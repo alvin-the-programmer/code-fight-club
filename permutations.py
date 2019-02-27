@@ -1,3 +1,5 @@
+# Time Complexity: 
+#   O(n!) where n = string length
 def permutations(string):
     if len(string) <= 1:
         return [string]

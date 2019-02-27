@@ -1,3 +1,8 @@
+# Time Complexity:
+#   ~O(c^(v/a)) where
+#       c = number of coins
+#       v = target value
+#       a = average coin worth
 def coin_change_slow(coins, val):
     if val < 0: return -1        
     if val == 0: return 0
@@ -12,5 +17,5 @@ def coin_change_slow(coins, val):
     else:
         return -1
 
-print(coin_change_slow([1, 2, 5], 11))
+# print(coin_change_slow([1, 2, 5], 11))
 
