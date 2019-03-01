@@ -13,18 +13,11 @@ class Solution:
                 ans = self.combinationSumFast(candidates, dif, memo)
                 ways += [ [*item, cand] for item in ans]
         
-        result_ways = set()
-        for way in ways: 
-            way.sort()
-            result_ways.add(tuple(way))
-                
-        memo[target] = [list(item) for item in result_ways]
+        uniqs = set([ tuple(sorted(l)) for l in ways ])
+        memo[target] = [ list(t) for t in uniqs ]
         return memo[target]
 
-
-
     def combinationSumSlow(self, candidates, target):
-        print(target)
         if target <= 0:
             return [[]]
                 
@@ -36,15 +29,11 @@ class Solution:
                 ans = self.combinationSumSlow(candidates, dif)
                 ways += [ [*item, cand] for item in ans]
         
-        result_ways = set()
-        for way in ways: 
-            way.sort()
-            result_ways.add(tuple(way))
-                
-        return [list(item) for item in result_ways]
+        uniqs = set([ tuple(sorted(l)) for l in ways ])
+        return [ list(t) for t in uniqs ]
 
 s = Solution()
-# print(s.combinationSumFast([1,10,25], 100))
-print(s.combinationSumSlow([1,10,25], 100))
+print(s.combinationSumFast([1,10,25], 100))
+# print(s.combinationSumSlow([1,10,25], 100))
 
 
